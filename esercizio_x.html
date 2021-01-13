@@ -1,0 +1,64 @@
+<!DOCTYPE HTML>
+<html>
+
+<body>
+
+  <p> es 1 --> inserire e visualizzare il nome </p>
+  <p> es 2 --> inserire l'età e vedere se sei maggiorenne o minorenne </p>
+  <p> es 3 --> calcolare l'equazione di secondo grado </p>
+
+  <script>
+    "use strict";
+
+    let you = prompt("Hi what's your name?", "");
+    alert(`Wellcome ${you}!`); 
+
+    let age = prompt("And how old are you?", "");
+    if(age <= 0 || age > 100){
+        outer: while(true){
+                age = prompt(`${age}... I don't think it's possible, try again!`, "");
+                if(age > 0 && age <= 100) break outer;
+            }
+    }else if(age >= 18){
+            alert(`Oh well, so you are ${age} and you're an adult!`); 
+    }else if(age < 18){
+            alert(`Oh well, so you are ${age} and you're a kid!`); 
+    } 
+    
+
+
+    let a = prompt("inserisci un valore numerico", "");
+    if(a === 0){
+        a = prompt(`${a} non è un valore accettabile, mettine un altro diverso da 0`, ""); 
+    }
+    let b = prompt("inserisci un valore numerico", "");
+    let c = prompt("inserisci un valore numerico", "");
+
+    function operations() { 
+        delta = Math.pow(b,2)-4*a*c
+        if (delta<0) {
+            alert('L\'equazione non ammette radici reali')
+        } 
+        else {
+            if (delta==0) { 
+                x=-b/(2*a)
+                alert('L\'equazione ammette due radici reali e coincidenti date da \n'+ ' 1= x2 = ' + x);
+            }
+        else {
+            x1=(-b - Math.sqrt(delta)) /(2*a);
+            x2=(-b + Math.sqrt(delta)) /(2*a);
+            alert('L\'equazione ammette due radici reali e distinte date da \n'+ 'x1= ' + x1 + '\nx2= '+x2)
+            } 
+           }
+        }
+    operations();
+
+
+
+  </script>
+
+  <p>...After the script.</p>
+
+</body>
+
+</html>
