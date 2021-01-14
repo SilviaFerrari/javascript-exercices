@@ -3,9 +3,15 @@
 
 <body>
 
-  <p> es 1 --> inserire e visualizzare il nome </p>
-  <p> es 2 --> inserire l'età e vedere se sei maggiorenne o minorenne </p>
-  <p> es 3 --> calcolare l'equazione di secondo grado </p>
+    <p> es 1 --> inserire e visualizzare il nome </p>
+    <p> es 2 --> inserire l'età e vedere se sei maggiorenne o minorenne </p>
+    <p> es 3 --> calcolare l'equazione di secondo grado </p>
+    <p> es 4 --> chiedere un valore n. Richiedere n valori e calcolare:
+     • massimo
+     • media
+     • somma dei negativi
+    </p>
+
 
   <script>
     "use strict";
@@ -15,49 +21,88 @@
 
     let age = prompt("And how old are you?", "");
     if(age <= 0 || age > 100){
-        outer: while(true){
-                age = prompt(`${age}... I don't think it's possible, try again!`, "");
-                if(age > 0 && age <= 100) break outer;
+        while(true){
+            age = prompt(`${age}... I don't think it's possible, try again!`, "");
+            if(age > 0 && age <= 100){
+                break;
             }
-    }else if(age >= 18){
-            alert(`Oh well, so you are ${age} and you're an adult!`); 
+        }
+    }
+    if(age >= 18){
+        alert(`Oh well, so you are ${age} and you're an adult!`); 
     }else if(age < 18){
-            alert(`Oh well, so you are ${age} and you're a kid!`); 
+        alert(`Oh well, so you are ${age} and you're a kid!`); 
     } 
     
-
-
     let a = prompt("inserisci un valore numerico", "");
-    if(a === 0){
-        a = prompt(`${a} non è un valore accettabile, mettine un altro diverso da 0`, ""); 
+    if(a == 0){
+        while(true){
+            a = prompt(`${a} non è un valore accettabile, mettine un altro diverso da 0`, ""); 
+            if(a != 0){
+                break;
+            }
+        } 
     }
     let b = prompt("inserisci un valore numerico", "");
     let c = prompt("inserisci un valore numerico", "");
 
-    function operations() { 
-        delta = Math.pow(b,2)-4*a*c
-        if (delta<0) {
-            alert('L\'equazione non ammette radici reali')
-        } 
-        else {
-            if (delta==0) { 
-                x=-b/(2*a)
-                alert('L\'equazione ammette due radici reali e coincidenti date da \n'+ ' 1= x2 = ' + x);
-            }
-        else {
-            x1=(-b - Math.sqrt(delta)) /(2*a);
-            x2=(-b + Math.sqrt(delta)) /(2*a);
-            alert('L\'equazione ammette due radici reali e distinte date da \n'+ 'x1= ' + x1 + '\nx2= '+x2)
-            } 
-           }
+    const delta = Math.pow(b,2)-4*a*c;
+    if(delta<0) {
+        alert('L\'equazione non ammette radici reali');
+    }else if(delta==0) { 
+            x=-b/(2*a);
+            alert('L\'equazione ammette due radici reali e coincidenti date da \n'+ ' 1= x2 = ' + x);
+    }else{
+        x1=(-b - Math.sqrt(delta)) /(2*a);
+        x2=(-b + Math.sqrt(delta)) /(2*a);
+        alert('L\'equazione ammette due radici reali e distinte date da \n'+ 'x1= ' + x1 + '\nx2= '+x2);
+    }  
+    
+    const pay = [];
+    let N = prompt("inserisci la lunghezza della lista", "");
+    for(let i = 0; i < N; i++){
+        let n = prompt("inserisci un valore", "");
+        if(n < -50){
+            n = n + (50+n);
+        }else if(n > 50){
+            n = n - (n-50);
         }
-    operations();
+        pay[i] = n;
+    }
+    alert("questa è la lista finale:" + pay);
 
+    let mediumValue = (list) => {
+        let media;
+        let sum;
+        for (let i = 0; i < list.length; i++) {
+            sum += list[i];
+        }
+        media = sum/list.length;
+        return media;
+    };
+
+    let negsum = (list) => {
+        let sum;
+        for (let i = 0; i < list.length; i++) {
+            if(list[i] < 0) sum += list[i];
+        }
+        return sum;
+    };
+
+    let maxValue = (list) => {
+        let max = list[0];
+        for (let i = 1; i < list.length; i++) {
+            if(list[i] > max) max = list[i];
+        }
+        return max;
+    };
+
+    alert("valore massimo della lista:" + maxValue(pay));
+    alert("qvalore medio della lista:" + mediumvalue(pay));
+    alert("somma dei valori negativi:" + negsum(pay));
 
 
   </script>
-
-  <p>...After the script.</p>
 
 </body>
 
