@@ -7,6 +7,11 @@ const ends = () => {
         return
     }
     console.log(risultati[0] + " " + risultati[1] + " " + risultati[2])
+
+    fs.writeFile('finalFile.txt', risultati[0] + " " + risultati[1] + " " + risultati[2], function (err) {
+        if (err) return console.log(err);
+    });
+    
 }
 
 fs.readFile("./file1.txt", (err, data) => {
@@ -39,7 +44,11 @@ fs.readFile("./file3.txt", (err, data) => {
     ends()
 })
 
-fs.writeFile('finalFile.txt', ends(), function (err) {
+fs.writeFile('finalFile.txt', "", function (err) {
     if (err) throw err;
     console.log('finalFile is created successfully.');
   });
+
+fs.writeFile('finalFile.txt', ends(), function (err) {
+    if (err) return console.log(err);
+});
