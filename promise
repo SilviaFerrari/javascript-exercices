@@ -4,10 +4,12 @@ const util = require("util")
 const readFileP = util.promisify(fs.readFile)
 const writeFileP = util.promisify(fs.writeFile)
 
+let testo1
 const p = readFileP("./package.json")
 p.then((data) => {
     console.log(data.toString())
-    return readFileP(".test.txt")
+    testo1 = data
+    return Promise.all([data, readFileP(".test.txt")])
 })
 .then((data) => {
     console.log(data.toString())
