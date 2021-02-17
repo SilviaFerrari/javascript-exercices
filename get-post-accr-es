@@ -1,0 +1,40 @@
+const fetch = require("node-fetch")
+/*fetch('http://192.168.1.231:8080/accreditamento', {
+    method: 'post',
+    body:    JSON.stringify({nome: "Silvia Ferrari"}),
+    headers: { 'Content-Type': 'application/json' },
+})
+.then(res => res.json())
+.then(data => console.log(data))
+.catch(err => console.log(err))*/
+
+/*fetch('http://192.168.1.231:8080/esercizi/1', {
+    method: 'get',
+    headers: { 'x-data': 'true' },
+})
+.then(res => res.json())
+.then(es => console.log(es))
+.catch(err => console.log(err))*/
+
+fetch('http://192.168.1.231:8080/esercizi/1', {
+    method: 'get',
+    headers: { 'x-data': 'true' },
+})
+.then(res => res.json())
+.then(es => {
+    const data = es.data;
+    function pari(num){
+        return num%2 == 0;
+    }
+    result = data.filter(pari);
+    //console.log(result);
+
+    fetch('http://192.168.1.231:8080/esercizi/1', {
+        method: 'post',
+        body:    JSON.stringify({"data": result}),
+        headers: { 'Content-Type': 'application/json' },
+    })
+    .then(res => res.json())
+    .then(result => console.log(result))
+    .catch(err => console.log(err))
+})
