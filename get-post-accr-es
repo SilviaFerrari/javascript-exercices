@@ -38,3 +38,113 @@ fetch('http://192.168.1.231:8080/esercizi/1', {
     .then(result => console.log(result))
     .catch(err => console.log(err))
 })
+
+
+
+
+//esercizi svolti 11-21
+//es 11
+/*
+lista = ["Lucia", "Marta", "Maurizio", "Giuseppe", "Veronica", "Sara", "Dario"]
+
+lista.sort()
+lista.forEach(x => x.toLowerCase())
+
+console.log(lista)*/
+
+//es 12
+/*
+numbs = [4,23,45,6,2,45,76,3,5,76]
+
+const min = numbs.map(x => x = x-1)
+
+console.log(min)*/
+
+//13
+/*
+numbs = [4,23,45,6,2,45,76,3,5,76]
+
+for(i = 0; i < numbs.length-1; i++){
+    numbs[i] = numbs[i] + numbs[i+1]
+}
+
+console.log(numbs)*/
+
+//es 14
+/*
+var dict = {};
+numbs = [-4,23,45,-6,0,2,45,-76,3,0,-5,76,0]
+
+let p = 0; z = 0; n = 0;
+
+numbs.forEach(x => {
+    if(x > 0) p++;
+    else if(x === 0) z++;
+    else if(x < 0) n++;
+})/*
+
+dict.positive = p;
+dict.zero = z;
+dict.negative = n;
+
+console.log(dict)
+
+//es 15
+/*
+words = ["Lucia", "Marta", "Maurizio", "Giuseppe", "Veronica", "Sara", "Dario"]
+
+const newWords = words.map(x => {
+    if(x.length % 2 === 0) x.toUpperCase()
+    else if(x.length % 2 != 0) x.toLowerCase()
+})
+
+console.log(newWords)*/
+
+//es 16
+/*
+words = ["Lucia", "Marta", "Maurizio", "Giuseppe", "Veronica", "Sara", "Dario"]
+console.log(words.join(" "))*/
+
+//es 17
+/*
+words = ["Lucia", "Marta", "Maurizio", "Giuseppe", "Veronica", "Sara", "Dario"]
+let result = "";
+
+words.forEach(ex = (x) => {
+    let y = Array.from(x)
+    result = result + y[x.length-1]
+})
+
+console.log(result)*/
+
+//es 18
+/*
+words = ["Lucia", "Mata", "Maio", "Giuseppe", "Veronica", "Sara", "Dario"]
+let result = "";
+
+words.forEach(ex = (x) => {
+    if(x.length > 4){
+        let y = Array.from(x)
+        result = result + y[0]
+    }
+})
+
+console.log(result)*/
+
+//es 19
+/*
+num = 1000
+div = []
+for(i = 0; i < num; i++){
+    if(num % i == 0) div.push(i)
+}
+
+console.log(div)*/
+
+//es  21 
+/*
+lista = [1,2,3,4,5,6,7,8,9,0]
+
+seclista = lista.filter(x => x<5)
+
+console.log(seclista)*/
