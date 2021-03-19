@@ -124,10 +124,9 @@ console.log(result)*/
 words = ["Lucia", "Mata", "Maio", "Giuseppe", "Veronica", "Sara", "Dario"]
 let result = "";
 
-words.forEach(ex = (x) => {
+words.forEach(x => {
     if(x.length > 4){
-        let y = Array.from(x)
-        result = result + y[0]
+        result = result + x[0]
     }
 })
 
