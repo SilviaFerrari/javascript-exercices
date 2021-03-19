@@ -91,19 +91,21 @@ console.log(dict)
 
 //es 15
 /*
-words = ["Lucia", "Marta", "Maurizio", "Giuseppe", "Veronica", "Sara", "Dario"]
-
-const newWords = words.map(x => {
-    if(x.length % 2 === 0) x.toUpperCase()
-    else if(x.length % 2 != 0) x.toLowerCase()
+words = ["CANE", "gatto", "piNo", "pingino", "PIZZA", "HOfame"]
+result = words.map(x => {
+    if (x.length%2 === 0) return x.toUpperCase()
+    else if (x.length%2 != 0) return x.toLowerCase()
 })
-
-console.log(newWords)*/
+console.log(result)*/
 
 //es 16
 /*
 words = ["Lucia", "Marta", "Maurizio", "Giuseppe", "Veronica", "Sara", "Dario"]
 console.log(words.join(" "))*/
+//other way
+/*words = ["CANE", "gatto", "piNo", "pingino", "PIZZA", "HOfame"]
+const reducer = (acc, cv) => acc + " " + cv;
+console.log(words.reduce(reducer));*/
 
 //es 17
 /*
