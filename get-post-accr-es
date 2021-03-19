@@ -112,7 +112,7 @@ console.log(words.reduce(reducer));*/
 words = ["Lucia", "Marta", "Maurizio", "Giuseppe", "Veronica", "Sara", "Dario"]
 let result = "";
 
-words.forEach(ex = (x) => {
+words.forEach(x => {
     let y = Array.from(x)
     result = result + y[x.length-1]
 })
